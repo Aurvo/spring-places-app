@@ -2,8 +2,7 @@
 <%@ include file="common/navbar.jspf"%>
 
 <div class="container">
-	<p>Welcome home, ${name}!</p>
-	<p>Now, you can <a href="/myplaces">manage the places you'd like to visit.</a></p>
+	<p>You have successfully logged out.</p>
 </div>
 
 <%@ include file="common/footer.jspf"%>

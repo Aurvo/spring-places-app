@@ -41,7 +41,7 @@ public class PlacesController {
 	
 	@RequestMapping(value = "/myplaces", method=RequestMethod.GET)
 	public String placesPage(ModelMap model) {
-		model.addAttribute("activePage", "myPlaces");
+		model.addAttribute("activePage", "myplaces");
 		String currentUser = getUserService.getLoggedInUserName();
 		model.addAttribute("name", currentUser);
 		model.addAttribute("places", placesService.getItemsForUser(currentUser));

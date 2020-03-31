@@ -29,17 +29,28 @@ public class EntryAndExitController {
 	
 	@RequestMapping(value = "/home", method=RequestMethod.GET)
 	public String homeURL(ModelMap model) {
+		model.addAttribute("activePage", "home");
 		model.addAttribute("name", getUserService.getLoggedInUserName());
 		return "home";
 	}
 	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginGet(@RequestParam(required = false) String error,
+			ModelMap model) {
+		model.addAttribute("activePage", "login");
+		model.addAttribute("invalidInput", error != null);
+		return "login";		
+	}
+	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(HttpServletRequest request, HttpServletResponse response) {
+	public String logout(HttpServletRequest request, HttpServletResponse response,
+			ModelMap model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null) {
 			(new SecurityContextLogoutHandler()).logout(request, response, auth);
 			request.getSession().invalidate();
 		}
-		return "redirect:/";
+		model.addAttribute("activePage", "logout");
+		return "logout";
 	}
 }
