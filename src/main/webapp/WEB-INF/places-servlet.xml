@@ -11,7 +11,7 @@
     <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
-            <value>/views/</value>
+            <value>/WEB-INF/views/</value>
         </property>
         <property name="suffix">
             <value>.jsp</value>
@@ -19,6 +19,14 @@
     </bean>
 
 	<mvc:resources mapping="/webjars/**" location="/webjars/"/>
+	<mvc:resources mapping="/resources/**" location="/resources/"/>
+	
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		 <!-- setting maximum upload size -->
+		<property name="maxUploadSize" value="100000"/>
+	</bean>
 	
     <mvc:annotation-driven />
     

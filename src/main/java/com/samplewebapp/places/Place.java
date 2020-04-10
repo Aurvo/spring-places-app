@@ -17,7 +17,7 @@ public class Place {
 	@Size(min = 2, message = "At least 2 characters")
 	private String description;
 	
-	private String image;
+	private String imageName;
 	private boolean beenThere;
 	
 	@DateTimeFormat(pattern = "mm/dd/yyyy")
@@ -26,12 +26,12 @@ public class Place {
 	public Place() {}
 	
 	public Place(int id, String name, String user, String description,
-			String image, boolean beenThere, Date targetDate) {
+			String imageName, boolean beenThere, Date targetDate) {
 		this.id = id;
 		this.name = name;
 		this.user = user;
 		this.description = description;
-		this.image = image;
+		this.imageName = imageName;
 		this.beenThere = beenThere;
 		this.targetDate = targetDate;
 	}
@@ -45,7 +45,7 @@ public class Place {
 	}
 	
 	public String getName() {
-		return user;
+		return name;
 	}
 	
 	public void setName(String name) {
@@ -68,12 +68,12 @@ public class Place {
 		this.description = description;
 	}
 	
-	public String getImage() {
-		return image;
+	public String getImageName() {
+		return imageName;
 	}
 	
-	public void setImage(String image) {
-		this.image = image;
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 	
 	public boolean isBeenThere() {
@@ -94,8 +94,8 @@ public class Place {
 	
 	@Override
 	public String toString() {
-		return String.format("Place [id=%s, name=%s, user=%s, description=%s, image=%s, beenThere=%s, targetDate=%s]",
-				id, name, user, description, image, beenThere, targetDate);
+		return String.format("Place [id=%s, name=%s, user=%s, description=%s, imageName=%s, beenThere=%s, targetDate=%s]",
+				id, name, user, description, imageName, beenThere, targetDate);
 	}
 	
 	@Override

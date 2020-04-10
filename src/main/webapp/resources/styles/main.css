@@ -1,0 +1,14 @@
+img {
+	height: 150px;
+	width: 200px;
+}
+
+.myPlacesImage {
+	margin-bottom: 20px;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

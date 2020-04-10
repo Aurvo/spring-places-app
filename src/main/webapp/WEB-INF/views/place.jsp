@@ -2,7 +2,8 @@
 <%@ include file="common/navbar.jspf"%>
 
 <div class="container">
-<form:form class="form-horizontal" commandName="placeToPopulate" method="POST">
+<form:form class="form-horizontal" commandName="placeToPopulate" method="POST"
+	action="/${actionWord == 'Update' ? 'update' : 'new'}place?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data">
 	<form:hidden path="id" />
 	
 	<h1>${actionWord} a Place</h1>
@@ -21,9 +22,10 @@
 		<form:errors path="description" cssClass="text-warning"/>
 	</div>
 	<div class="form-group">
-		<form:label path="image" class="col-sm-2">Image:</form:label>
+		<!-- Using normal form controls here because image imput is handled differently -->
+		<label class="col-sm-2">Image:</label>
 		<div class="col-sm-10">
-			<form:input type="text" path="image"/>
+			<input type="file" name="imageFile"/>
 		</div>
 	</div>
 	<div class="form-group">

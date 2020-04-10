@@ -1,5 +1,7 @@
 package com.samplewebapp;
 
+import java.nio.file.Paths;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
-@SessionAttributes("name")
+@SessionAttributes("username")
 public class EntryAndExitController {
 	
 	@Autowired
@@ -30,7 +32,7 @@ public class EntryAndExitController {
 	@RequestMapping(value = "/home", method=RequestMethod.GET)
 	public String homeURL(ModelMap model) {
 		model.addAttribute("activePage", "home");
-		model.addAttribute("name", getUserService.getLoggedInUserName());
+		model.addAttribute("username", getUserService.getLoggedInUserName());
 		return "home";
 	}
 	
